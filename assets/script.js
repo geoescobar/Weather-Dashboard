@@ -23,7 +23,7 @@ startSearch.style.display = 'block';
 
 //changing from beginning search into main dashboard
 function loadDashboard() {
-    startSearch.addEventListener('click', function(event) {
+    startSearch.addEventListener('submit', function(event) {
         startSearch.style.display = 'none';
         navBar.style.display = 'block';
         mainDash.style.display = 'block';
