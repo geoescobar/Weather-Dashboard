@@ -1,0 +1,21 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;    
+    color: white;
+    background: linear-gradient(90deg, #02111B 0%, #3F4045 100%)
+}
+
+.day {
+    background: linear-gradient(135deg, #eeda13 0%, #9c7012 100%)
+}
+
+.night {
+    background: linear-gradient(135deg, #001D4A 0%, #006992 100%)
+
+}
