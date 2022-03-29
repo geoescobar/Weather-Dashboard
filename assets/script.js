@@ -1,40 +1,52 @@
 // variables 
-// var historyDropdown = document.getElementById('history-dropdown');
-// var mainSearch = document.getElementById('search-bar');
-// var headerTitle = document.getElementById('welcome-title');
 var navBar = document.getElementById('nav');
-var startSearch = document.getElementById('home-page-search');
 var mainDash = document.getElementById('mainDashboard');
+var fiveDayDash = document.getElementById('five-day-forecast');
 var dayOne = document.getElementById('dayOne');
 var dayTwo = document.getElementById('dayTwo');
 var dayThree = document.getElementById('dayThree');
 var dayFour = document.getElementById('dayFour');
 var dayFive = document.getElementById('dayFive');
+var mainCity = document.getElementById('main-city');
+var mainTemp = document.getElementById('main-temp');
+var mainWind = document.getElementById('main-wind');
+var mainHumid = document.getElementById('main-humidity');
 
-// adding styles 
-navBar.style.display = 'none';
-mainDash.style.display = 'none';
-dayOne.style.display = 'none';
-dayTwo.style.display = 'none';
-dayThree.style.display = 'none';
-dayFour.style.display = 'none';
-dayFive.style.display = 'none';
-startSearch.style.display = 'block';
 
-//changing from beginning search into main dashboard
-function loadDashboard() {
-    startSearch.addEventListener('submit', function(event) {
-        startSearch.style.display = 'none';
-        navBar.style.display = 'block';
-        mainDash.style.display = 'block';
-        dayOne.style.display = 'block';
-        dayTwo.style.display = 'block';
-        dayThree.style.display = 'block';
-        dayFour.style.display = 'block';
-        dayFive.style.display = 'block';
-    });
-   
-}
+// search bar input text
+var inputText = document.getElementById('input-text');
+var cityInfo = inputText.value.trim();
+var searchBtn = document.getElementById('search-btn');
 
-// invoking function
-loadDashboard();
+// fetching data from api for main dashboard
+    var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=dallas&appid=e277e6868f8299dd93f5f4cdf4022982';
+    fetch(apiUrl)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+        console.log(data.name);
+        console.log(data.main.temp);
+        console.log(data.main.humidity);
+        console.log(data.wind.speed);
+        mainCity.textContent = data.name;
+        mainTemp.textContent = "Temp:  " + data.main.temp + "\xB0 " + " F";
+        mainWind.textContent = "Wind: " + data.wind.speed + " MPH";
+        mainHumid.textContent = "Humidity: " + data.main.humidity + "%";
+    })
+
+// fetching data for 5 day dashboard
+var apiUrl = 'api.openweathermap.org/data/2.5/forecast/daily?q=dallas&cnt=5&appid=e277e6868f8299dd93f5f4cdf4022982';
+fetch(apiUrl)
+.then(function (response) {
+    return response.json();
+})
+.then(function (data) {
+    console.log(data);
+    console.log(data.name);
+    console.log(data.main.temp);
+    console.log(data.main.humidity);
+    console.log(data.wind.speed);
+})
+
