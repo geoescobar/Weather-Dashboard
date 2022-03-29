@@ -19,7 +19,7 @@ var cityInfo = inputText.value.trim();
 var searchBtn = document.getElementById('search-btn');
 
 // fetching data from api for main dashboard
-    var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=dallas&appid=e277e6868f8299dd93f5f4cdf4022982';
+    var apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=dallas&units=imperial&appid=e277e6868f8299dd93f5f4cdf4022982';
     fetch(apiUrl)
     .then(function (response) {
         return response.json();
@@ -37,16 +37,17 @@ var searchBtn = document.getElementById('search-btn');
     })
 
 // fetching data for 5 day dashboard
-var apiUrl = 'api.openweathermap.org/data/2.5/forecast/daily?q=dallas&cnt=5&appid=e277e6868f8299dd93f5f4cdf4022982';
-fetch(apiUrl)
-.then(function (response) {
-    return response.json();
-})
-.then(function (data) {
-    console.log(data);
-    console.log(data.name);
-    console.log(data.main.temp);
-    console.log(data.main.humidity);
-    console.log(data.wind.speed);
-})
+function fiveDay(lat, lon) {
+    // put the lat, lon, into the api URL
+    var apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exclude=minutely,hourly&appid=e277e6868f8299dd93f5f4cdf4022982`;
+    fetch(apiUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+        console.log(data.dt_txt);
+      });
+  }
+
 
