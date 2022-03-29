@@ -8,7 +8,7 @@
 body {
     font-family: 'Poppins', sans-serif;    
     color: white;
-    background: linear-gradient(90deg, #02111B 0%, #3F4045 100%)
+    background: linear-gradient(180deg, #02111B 0%, #3F4045 100%);
 }
 
 #home-page-search {
@@ -20,23 +20,20 @@ body {
     margin: 0 150px;
 }
 
-.day {
-    background: linear-gradient(135deg, #eeda13 0%, #9c7012 100%)
-}
-
-.night {
-    background: linear-gradient(135deg, #001D4A 0%, #006992 100%)
-
-}
-
 .col {
     border-style: solid;
     border-radius: 10px;
-    border-color: white;
+    border-color: #065A82;
+    background: linear-gradient(#065A82 25%, #1C7293 100%);
     display: inline-block;
     justify-content: center;
     align-items: center;
+    text-align: center;
     margin: 75px 5px;
     height: auto;
     width: auto;
+}
+
+.col h2 {
+    text-decoration: underline;
 }

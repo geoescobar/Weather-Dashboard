@@ -50,4 +50,20 @@ function fiveDay(lat, lon) {
       });
   }
 
+  for (var i = 0; i < 5; i++) {
+    var forcastCard = document.createElement("div")
+   
+    var cardTitle = document.createElement("h3")
+    var cardInfo = document.createElement("img")
+    var cardInfo2 = document.createElement("p")
+    var cardInfo3 = document.createElement("p")
 
+    forcastCard.append(cardTitle, cardInfo, cardInfo2, cardInfo3);
+  
+    cardTitle.textContent = date;
+    cardInfo.src = 'https://openweathermap.org/img/wn/' + icon + "@2x.png";
+    cardInfo2.textContent = "Temp: " + results.list[((i+1)*8)-1].main.temp + " °F";
+    cardInfo3.textContent = "Humidity: " + results.list[((i+1)*8)-1].main.humidity + " %"
+
+    forcastContainer.append(forcastCard)
+  };
