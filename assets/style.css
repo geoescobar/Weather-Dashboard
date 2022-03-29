@@ -21,6 +21,7 @@ body {
 }
 
 .col {
+    font-family: 'Poppins', sans-serif;    
     border-style: solid;
     border-radius: 10px;
     border-color: #065A82;
