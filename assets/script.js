@@ -11,6 +11,7 @@ var mainCity = document.getElementById('main-city');
 var mainTemp = document.getElementById('main-temp');
 var mainWind = document.getElementById('main-wind');
 var mainHumid = document.getElementById('main-humidity');
+var icon = document.getElementById('icon');
 
 
 // search bar input text
@@ -27,10 +28,12 @@ var searchBtn = document.getElementById('search-btn');
     .then(function (data) {
         console.log(data);
         console.log('city name: ' + data.name);
+        console.log('icon: ' + data.weather[0].icon);
         console.log('main temp: ' + data.main.temp);
         console.log('humidity: ' + data.main.humidity);
         console.log('wind speed: ' + data.wind.speed);
         mainCity.textContent = data.name;
+        icon.textContent = "https://openweathermap.org/img/wn/" + data.weather[0].icon + "04d.png";
         mainTemp.textContent = "Temp:  " + data.main.temp + "\xB0 " + " F";
         mainWind.textContent = "Wind: " + data.wind.speed + " MPH";
         mainHumid.textContent = "Humidity: " + data.main.humidity + "%";

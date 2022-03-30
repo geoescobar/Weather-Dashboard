@@ -38,3 +38,8 @@ body {
 .col h2 {
     text-decoration: underline;
 }
+
+#search-btn {
+    background: linear-gradient(#065A82 25%, #1C7293 100%);
+    color: white;    
+}
