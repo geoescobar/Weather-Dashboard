@@ -26,10 +26,10 @@ var searchBtn = document.getElementById('search-btn');
     })
     .then(function (data) {
         console.log(data);
-        console.log(data.name);
-        console.log(data.main.temp);
-        console.log(data.main.humidity);
-        console.log(data.wind.speed);
+        console.log('city name: ' + data.name);
+        console.log('main temp: ' + data.main.temp);
+        console.log('humidity: ' + data.main.humidity);
+        console.log('wind speed: ' + data.wind.speed);
         mainCity.textContent = data.name;
         mainTemp.textContent = "Temp:  " + data.main.temp + "\xB0 " + " F";
         mainWind.textContent = "Wind: " + data.wind.speed + " MPH";
@@ -51,19 +51,5 @@ function fiveDay(lat, lon) {
   }
 
   for (var i = 0; i < 5; i++) {
-    var forcastCard = document.createElement("div")
-   
-    var cardTitle = document.createElement("h3")
-    var cardInfo = document.createElement("img")
-    var cardInfo2 = document.createElement("p")
-    var cardInfo3 = document.createElement("p")
 
-    forcastCard.append(cardTitle, cardInfo, cardInfo2, cardInfo3);
-  
-    cardTitle.textContent = date;
-    cardInfo.src = 'https://openweathermap.org/img/wn/' + icon + "@2x.png";
-    cardInfo2.textContent = "Temp: " + results.list[((i+1)*8)-1].main.temp + " °F";
-    cardInfo3.textContent = "Humidity: " + results.list[((i+1)*8)-1].main.humidity + " %"
-
-    forcastContainer.append(forcastCard)
   };
