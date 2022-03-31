@@ -109,7 +109,7 @@ function fiveDay(lat, lon) {
 
         // divElement for break tag 
         divElement.append(document.createElement("br"));
-// div element for icon
+        // div element for icon
         var iconElement = document.createElement("img");
         iconElement.setAttribute(
           "src",
@@ -121,8 +121,20 @@ function fiveDay(lat, lon) {
 
         divElement.append(document.createElement("br"));
 
-// divElement for temp
-divElement.append(document.createElement('p').textContent = data.daily[i].temp.day + "\xB0 " + " F");
+        // divElement for temp
+        divElement.append(document.createElement('p').textContent = data.daily[i].temp.day + "\xB0 " + " F");
+
+        // divElement for break tag 
+        divElement.append(document.createElement("br"));
+
+        // divElement for wind
+        divElement.append(document.createElement('p').textContent = data.daily[i].wind_speed  + " MPH");
+
+        // divElement for break tag 
+        divElement.append(document.createElement("br"));
+
+        // divElement for wind
+        divElement.append(document.createElement('p').textContent = data.daily[i].humidity  + " %");
 
 
 
