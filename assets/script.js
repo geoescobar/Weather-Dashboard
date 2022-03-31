@@ -103,12 +103,13 @@ function fiveDay(lat, lon) {
         var newDate = new Date(data.daily[i].dt * 1000);
         var month = newDate.getMonth() + 1;
         divElement.append(
-          (document.createElement("p").textContent =
+          (document.createElement("h2").textContent =
             month + "/" + newDate.getDate() + "/" + newDate.getFullYear())
         );
 
         // divElement for break tag 
         divElement.append(document.createElement("br"));
+
         // div element for icon
         var iconElement = document.createElement("img");
         iconElement.setAttribute(
@@ -119,24 +120,23 @@ function fiveDay(lat, lon) {
         );
         divElement.append(iconElement);
 
+        // divElement for break tag 
         divElement.append(document.createElement("br"));
 
         // divElement for temp
-        divElement.append(document.createElement('p').textContent = data.daily[i].temp.day + "\xB0 " + " F");
+        divElement.append(document.createElement('p').textContent = "Temp: " + data.daily[i].temp.day + "\xB0 " + " F");
 
         // divElement for break tag 
         divElement.append(document.createElement("br"));
 
         // divElement for wind
-        divElement.append(document.createElement('p').textContent = data.daily[i].wind_speed  + " MPH");
+        divElement.append(document.createElement('p').textContent = "Wind: " + data.daily[i].wind_speed  + " MPH");
 
         // divElement for break tag 
         divElement.append(document.createElement("br"));
 
         // divElement for wind
-        divElement.append(document.createElement('p').textContent = data.daily[i].humidity  + " %");
-
-
+        divElement.append(document.createElement('p').textContent = "Humidity: " + data.daily[i].humidity  + " %");
 
         //appending it to the html div for the 5 day dash
         fiveDayDash.append(divElement);
