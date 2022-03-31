@@ -15,6 +15,7 @@ var searchBtn = document.getElementById("search-btn");
 
 // Recording input text to send to loadCityTemp function
 searchBtn.addEventListener("click", function (event) {
+  event.preventDefault()
   var inputText = document.getElementById("input-text");
   var cityInfo = inputText.value.trim();
   loadCityTemp(cityInfo, true);

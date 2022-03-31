@@ -22,10 +22,8 @@ body {
 
 .col {
     font-family: 'Poppins', sans-serif;    
-    border-style: solid;
+    border-style: none;
     border-radius: 10px;
-    border-color: #065A82;
-    background: linear-gradient(#065A82 25%, #1C7293 100%);
     display: inline-block;
     justify-content: center;
     align-items: center;
@@ -33,6 +31,27 @@ body {
     margin: 75px 5px;
     height: auto;
     width: auto;
+    background: linear-gradient(316deg, #045de9, #1c7293, #06bcfb, #4884ee);
+    background-size: 800% 800%;
+    -webkit-animation: AnimationName 20s ease infinite;
+    -moz-animation: AnimationName 20s ease infinite;
+    animation: AnimationName 20s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
 
 .col h2 {
