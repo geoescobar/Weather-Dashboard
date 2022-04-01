@@ -25,62 +25,57 @@
   </head>
 
   <body>
-    <!-- nav bar in the header -->
+      <!-- nav bar in the header -->
     <header id="nav">
+      <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <div class="dropdown">
+            <button id="dropdown" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Previous search...
+            </button>
+            <ul id="dropdown-list" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 
-
-        <nav class="navbar navbar-dark bg-dark">
-          <div class="container-fluid">
-            <div class="dropdown">
-              <button id="dropdown" class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown button
-              </button>
-              <ul id="dropdown-list" class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-
-              </ul>
-            </div>
-            <a class="navbar-brand"><i class="fa-solid fa-2x fa-cloud-sun"></i> Weather Dashboard</a>
-            <form class="d-flex">
-              <input id="input-text" class="form-control me-2" type="search" placeholder="Search City..." aria-label="Search">
-              <button id="search-btn" class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            </ul>
           </div>
-        </nav>
-   
-    </header>
-
-    <div class="container">
-      <!-- main dashboard -->
-      <div id="mainDashboard" class="row align-items-center">
-        <div class="col">
-          <h2 id="main-city">City:</h2>
-          <img id="icon">
-          <p id="main-temp">Temp:</p>
-          <p id="main-wind">Wind:</p>
-          <p id="main-humidity">Humidity:</p>        
+          <a class="navbar-brand"><i class="fa-solid fa-2x fa-cloud-sun"></i> Weather Dashboard</a>
+          <form class="d-flex">
+            <input id="input-text" class="form-control me-2" type="search" placeholder="Search City..." aria-label="Search">
+            <button id="search-btn" class="btn btn-outline-success" type="submit">Search</button>
+          </form>
         </div>
+      </nav>
+ 
+  </header>
+  <section>
+  <div class="container">
+    <!-- main dashboard -->
+    <div id="mainDashboard" class="row align-items-center">
+      <div class="col">
+        <h2 id="main-city">City:</h2>
+        <img id="icon">
+        <p id="main-temp">Temp:</p>
+        <p id="main-wind">Wind:</p>
+        <p id="main-humidity">Humidity:</p>        
       </div>
+    </div>
 
-      <!-- 5 day forecast -->
-      <div id="five-day-forecast" class="row align-items-center">
-        <!-- <div id="dayOne" class="col"></div> -->
-      </div>
+    <!-- 5 day forecast -->
+    <div id="five-day-forecast" class="row align-items-center">
+      <!-- <div id="dayOne" class="col"></div> -->
+    </div>
 
-
-      <!-- History div -->
-      <div id="city-history"></div>
-
-
-    <!-- JS links -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    <script
-      src="https://kit.fontawesome.com/efbd4db626.js"
-      crossorigin="anonymous"
-    ></script>
-    <script
-  src="https://code.jquery.com/jquery-3.6.0.js"
-  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-  crossorigin="anonymous"></script>
-    <script src="./assets/script.js"></script>
+  <!-- JS links -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+  <script
+    src="https://kit.fontawesome.com/efbd4db626.js"
+    crossorigin="anonymous"
+  ></script>
+  <script
+src="https://code.jquery.com/jquery-3.6.0.js"
+integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+crossorigin="anonymous"></script>
+  <script src="./assets/script.js"></script>
+      <div class="curve"></div>
+    </section>
   </body>
 </html>

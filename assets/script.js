@@ -74,6 +74,7 @@ function loadCityHistory() {
   if (cities) {
     for (const city of cities) {
       var previousCity = document.createElement('li');
+      previousCity.classList.add('prev-cities');
       previousCity.textContent = city;
       previousCity.addEventListener('click', function() {
         loadCityTemp(city, false)
