@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     color: white;
+    font-family: 'Poppins', sans-serif;    
 }
 
 body {
@@ -21,14 +22,16 @@ body {
 }
 
 .col {
-    font-family: 'Poppins', sans-serif;    
+    font-family: 'Poppins', sans-serif;  
+    font-weight: 100;  
     border-style: none;
     border-radius: 10px;
     display: inline-block;
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin: 75px 5px;
+    margin: 60px 5px;
+    padding: 10px;
     height: auto;
     width: auto;
     background: linear-gradient(316deg, #045de9, #1c7293, #06bcfb, #4884ee);
@@ -54,11 +57,26 @@ body {
     100%{background-position:0% 50%}
 }
 
-.col h2 {
-    text-decoration: underline;
+.wind {
+font-weight: 100;
 }
+
+.humidity {
+    font-weight: 100;
+}
+
+.five-day-temp {
+    font-weight: 100;
+}
+
+.five-day-date {
+    text-decoration: underline;
+    font-size: 25px;
+} 
 
 #search-btn {
     background: linear-gradient(#065A82 25%, #1C7293 100%);
     color: white;    
+    border-style: none;
+    margin: 0 5px;
 }

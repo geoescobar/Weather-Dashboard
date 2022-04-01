@@ -103,13 +103,13 @@ function fiveDay(lat, lon) {
         divElement.setAttribute("class", "col");
         var newDate = new Date(data.daily[i].dt * 1000);
         var month = newDate.getMonth() + 1;
-        divElement.append(
-          (document.createElement("h2").textContent =
-            month + "/" + newDate.getDate() + "/" + newDate.getFullYear())
-        );
+        var date = document.createElement("h2");
+        date.textContent = month + "/" + newDate.getDate() + "/" + newDate.getFullYear();
+        date.classList.add("five-day-date");
+        divElement.append(date);
 
         // divElement for break tag 
-        divElement.append(document.createElement("br"));
+        // divElement.append(document.createElement("br"));
 
         // div element for icon
         var iconElement = document.createElement("img");
@@ -122,22 +122,31 @@ function fiveDay(lat, lon) {
         divElement.append(iconElement);
 
         // divElement for break tag 
-        divElement.append(document.createElement("br"));
+        // divElement.append(document.createElement("br"));
 
         // divElement for temp
-        divElement.append(document.createElement('p').textContent = "Temp: " + data.daily[i].temp.day + "\xB0 " + " F");
+        var fiveDayTemp = document.createElement('p');
+        fiveDayTemp.textContent = textContent = "Temp: " + data.daily[i].temp.day + "\xB0 " + " F";
+        fiveDayTemp.classList.add("five-day-temp");
+        divElement.append(fiveDayTemp);
 
         // divElement for break tag 
-        divElement.append(document.createElement("br"));
+        // divElement.append(document.createElement("br"));
 
         // divElement for wind
-        divElement.append(document.createElement('p').textContent = "Wind: " + data.daily[i].wind_speed  + " MPH");
+        var wind = document.createElement('p');
+        wind.textContent = "Wind: " + data.daily[i].wind_speed  + " MPH";
+        wind.classList.add("wind");
+        divElement.append(wind);
 
         // divElement for break tag 
-        divElement.append(document.createElement("br"));
+        // divElement.append(document.createElement("br"));
 
-        // divElement for wind
-        divElement.append(document.createElement('p').textContent = "Humidity: " + data.daily[i].humidity  + " %");
+        // divElement for humidity
+        var humidity = document.createElement('p');
+        humidity.textContent = "Humidity: " + data.daily[i].humidity  + " %";
+        humidity.classList.add("humidity");
+        divElement.append(humidity);
 
         //appending it to the html div for the 5 day dash
         fiveDayDash.append(divElement);
