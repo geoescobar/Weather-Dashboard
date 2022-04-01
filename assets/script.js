@@ -8,8 +8,10 @@ var mainWind = document.getElementById("main-wind");
 var mainHumid = document.getElementById("main-humidity");
 var icon = document.getElementById("icon");
 var historyDropdown = document.getElementById("dropdown-list");
+var mainUvi = document.getElementById("main-uv");
 
-// search bar input text
+
+// search bar 
 var searchBtn = document.getElementById("search-btn");
 
 // Recording input text to send to loadCityTemp function
@@ -51,7 +53,6 @@ function loadCityTemp(cityName, newSearch) {
       // local storage for history dropdown
       if (newSearch) {
         var localStorageKey = `previousCities`;
-        console.log(localStorage);
         if (localStorage.getItem(localStorageKey)) {
           var cities = JSON.parse(localStorage.getItem(localStorageKey));
           cities.push(data.name);
@@ -114,6 +115,7 @@ function fiveDay(lat, lon) {
             data.daily[i].weather[0].icon +
             ".png"
         );
+        iconElement.classList.add('five-day-icon')
         divElement.append(iconElement);
 
         // divElement for temp
@@ -140,3 +142,4 @@ function fiveDay(lat, lon) {
       }
     });
 }
+
