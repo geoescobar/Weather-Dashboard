@@ -35,9 +35,9 @@ body {
     width: auto;
     background: linear-gradient(316deg, #045de9, #1c7293, #06bcfb, #4884ee);
     background-size: 800% 800%;
-    -webkit-animation: AnimationName 20s ease infinite;
-    -moz-animation: AnimationName 20s ease infinite;
-    animation: AnimationName 20s ease infinite;
+    -webkit-animation: AnimationName 15s ease infinite;
+    -moz-animation: AnimationName 15s ease infinite;
+    animation: AnimationName 15s ease infinite;
     z-index: 50;
 }
 

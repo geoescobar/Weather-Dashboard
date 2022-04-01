@@ -7,20 +7,18 @@ var mainTemp = document.getElementById("main-temp");
 var mainWind = document.getElementById("main-wind");
 var mainHumid = document.getElementById("main-humidity");
 var icon = document.getElementById("icon");
-var historyDropdown = document.getElementById('dropdown-list');
-
+var historyDropdown = document.getElementById("dropdown-list");
 
 // search bar input text
 var searchBtn = document.getElementById("search-btn");
 
 // Recording input text to send to loadCityTemp function
 searchBtn.addEventListener("click", function (event) {
-  event.preventDefault()
+  event.preventDefault();
   var inputText = document.getElementById("input-text");
   var cityInfo = inputText.value.trim();
   loadCityTemp(cityInfo, true);
 });
-
 
 loadCityHistory();
 // fetching data from API
@@ -50,41 +48,39 @@ function loadCityTemp(cityName, newSearch) {
       mainHumid.textContent = "Humidity: " + data.main.humidity + "%";
       fiveDay(data.coord.lat, data.coord.lon);
 
-      // local storage for history dropdown 
+      // local storage for history dropdown
       if (newSearch) {
-        var localStorageKey = `previousCities`
+        var localStorageKey = `previousCities`;
         console.log(localStorage);
         if (localStorage.getItem(localStorageKey)) {
           var cities = JSON.parse(localStorage.getItem(localStorageKey));
           cities.push(data.name);
           localStorage.setItem(localStorageKey, JSON.stringify(cities));
         } else {
-          localStorage.setItem(localStorageKey, JSON.stringify([data.name]))
+          localStorage.setItem(localStorageKey, JSON.stringify([data.name]));
         }
         loadCityHistory();
       }
     });
 }
 
-// history dropdown function 
+// history dropdown function
 function loadCityHistory() {
-  historyDropdown.innerHTML = '';
-  var localStorageKey = `previousCities`
-  var cities = JSON.parse(localStorage.getItem(localStorageKey))
+  historyDropdown.innerHTML = "";
+  var localStorageKey = `previousCities`;
+  var cities = JSON.parse(localStorage.getItem(localStorageKey));
   if (cities) {
-    for (const city of cities) {
-      var previousCity = document.createElement('li');
-      previousCity.classList.add('prev-cities');
-      previousCity.textContent = city;
-      previousCity.addEventListener('click', function() {
-        loadCityTemp(city, false)
-      });
-      historyDropdown.append(previousCity);
-    }
+      for (const city of cities) {
+        var previousCity = document.createElement("li");
+        previousCity.classList.add("prev-cities");
+        previousCity.textContent = city;
+        previousCity.addEventListener("click", function () {
+          loadCityTemp(city, false);
+        });
+        historyDropdown.append(previousCity);
+      }
   }
 }
-
-
 
 // fetching data for 5 day dashboard
 function fiveDay(lat, lon) {
@@ -97,7 +93,7 @@ function fiveDay(lat, lon) {
     .then(function (data) {
       console.log(data);
       console.log(data.dt_txt);
-      fiveDayDash.innerHTML = '';
+      fiveDayDash.innerHTML = "";
       for (var i = 1; i < 6; i++) {
         // divElement for date
         var divElement = document.createElement("div");
@@ -105,11 +101,11 @@ function fiveDay(lat, lon) {
         var newDate = new Date(data.daily[i].dt * 1000);
         var month = newDate.getMonth() + 1;
         var date = document.createElement("h2");
-        date.textContent = month + "/" + newDate.getDate() + "/" + newDate.getFullYear();
+        date.textContent =
+          month + "/" + newDate.getDate() + "/" + newDate.getFullYear();
         date.classList.add("five-day-date");
         divElement.append(date);
 
-        
         // div element for icon
         var iconElement = document.createElement("img");
         iconElement.setAttribute(
@@ -121,20 +117,21 @@ function fiveDay(lat, lon) {
         divElement.append(iconElement);
 
         // divElement for temp
-        var fiveDayTemp = document.createElement('p');
-        fiveDayTemp.textContent = textContent = "Temp: " + data.daily[i].temp.day + "\xB0 " + " F";
+        var fiveDayTemp = document.createElement("p");
+        fiveDayTemp.textContent = textContent =
+          "Temp: " + data.daily[i].temp.day + "\xB0 " + " F";
         fiveDayTemp.classList.add("five-day-temp");
         divElement.append(fiveDayTemp);
 
         // divElement for wind
-        var wind = document.createElement('p');
-        wind.textContent = "Wind: " + data.daily[i].wind_speed  + " MPH";
+        var wind = document.createElement("p");
+        wind.textContent = "Wind: " + data.daily[i].wind_speed + " MPH";
         wind.classList.add("wind");
         divElement.append(wind);
 
         // divElement for humidity
-        var humidity = document.createElement('p');
-        humidity.textContent = "Humidity: " + data.daily[i].humidity  + " %";
+        var humidity = document.createElement("p");
+        humidity.textContent = "Humidity: " + data.daily[i].humidity + " %";
         humidity.classList.add("humidity");
         divElement.append(humidity);
 
@@ -143,4 +140,3 @@ function fiveDay(lat, lon) {
       }
     });
 }
-
