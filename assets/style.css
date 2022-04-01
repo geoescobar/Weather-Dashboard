@@ -80,3 +80,9 @@ font-weight: 100;
     border-style: none;
     margin: 0 5px;
 }
+
+#dropdown {
+    background: linear-gradient(#065A82 25%, #1C7293 100%);
+    color: white;    
+    border-style: none;
+}
