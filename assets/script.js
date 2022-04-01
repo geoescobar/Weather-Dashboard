@@ -10,6 +10,10 @@ var icon = document.getElementById("icon");
 var historyDropdown = document.getElementById("dropdown-list");
 var mainUvi = document.getElementById("main-uv");
 
+var today = moment();
+$("#currentTime").text(today.format("MMMM Do, h:mm a"));
+
+
 
 // search bar 
 var searchBtn = document.getElementById("search-btn");

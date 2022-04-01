@@ -14,6 +14,11 @@ body {
 
 }
 
+#currentTime {
+    margin: auto;
+    padding: 10px;
+}
+
 #home-page-search {
     display: inline-block;
     justify-content: center;
@@ -25,7 +30,8 @@ body {
 }
 
 .col-one {
-    font-family: 'Sora', sans-serif;  
+    font-family: 'Sora', sans-serif; 
+    letter-spacing: 1px; 
     font-weight: 300;  
     border-style: none;
     border-radius: 10px;
@@ -72,6 +78,7 @@ body {
 
 .col {
     font-family: 'Sora', sans-serif;  
+    letter-spacing: 1px; 
     font-weight: 100;  
     border-style: none;
     border-radius: 10px;
