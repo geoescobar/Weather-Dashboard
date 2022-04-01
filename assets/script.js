@@ -7,7 +7,7 @@ var mainTemp = document.getElementById("main-temp");
 var mainWind = document.getElementById("main-wind");
 var mainHumid = document.getElementById("main-humidity");
 var icon = document.getElementById("icon");
-var historyDiv = document.getElementById('city-history');
+var historyDropdown = document.getElementById('dropdown-list');
 
 
 // search bar input text
@@ -68,18 +68,17 @@ function loadCityTemp(cityName, newSearch) {
 
 // history dropdown function 
 function loadCityHistory() {
-  historyDiv.innerHTML = '';
+  historyDropdown.innerHTML = '';
   var localStorageKey = `previousCities`
   var cities = JSON.parse(localStorage.getItem(localStorageKey))
   if (cities) {
-    for (var city of cities) {
-      var createHistoryList = document.getElementById('dropdown-list');
-      var previousCities = document.createElement('li')
-      createHistoryList.textContent = city;
-      createHistoryList.addEventListener('click', function() {
+    for (const city of cities) {
+      var previousCity = document.createElement('li');
+      previousCity.textContent = city;
+      previousCity.addEventListener('click', function() {
         loadCityTemp(city, false)
       });
-      historyDiv.append(createHistoryList);
+      historyDropdown.append(previousCity);
     }
   }
 }
@@ -109,9 +108,7 @@ function fiveDay(lat, lon) {
         date.classList.add("five-day-date");
         divElement.append(date);
 
-        // divElement for break tag 
-        // divElement.append(document.createElement("br"));
-
+        
         // div element for icon
         var iconElement = document.createElement("img");
         iconElement.setAttribute(
@@ -122,26 +119,17 @@ function fiveDay(lat, lon) {
         );
         divElement.append(iconElement);
 
-        // divElement for break tag 
-        // divElement.append(document.createElement("br"));
-
         // divElement for temp
         var fiveDayTemp = document.createElement('p');
         fiveDayTemp.textContent = textContent = "Temp: " + data.daily[i].temp.day + "\xB0 " + " F";
         fiveDayTemp.classList.add("five-day-temp");
         divElement.append(fiveDayTemp);
 
-        // divElement for break tag 
-        // divElement.append(document.createElement("br"));
-
         // divElement for wind
         var wind = document.createElement('p');
         wind.textContent = "Wind: " + data.daily[i].wind_speed  + " MPH";
         wind.classList.add("wind");
         divElement.append(wind);
-
-        // divElement for break tag 
-        // divElement.append(document.createElement("br"));
 
         // divElement for humidity
         var humidity = document.createElement('p');
