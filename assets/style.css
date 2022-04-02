@@ -149,7 +149,7 @@ body {
 }
 
 #search-btn:hover {
-    transform: scale(1);
+    transform: scale(1.1);
     z-index: 2;
     box-shadow: 2px 2px 2px rgb(255, 253, 253);
 }
@@ -162,7 +162,7 @@ body {
 }
 
 #dropdown:hover {
-    transform: scale(1);
+    transform: scale(1.1);
     z-index: 2;
     box-shadow: 2px 2px 2px rgb(255, 253, 253);
 

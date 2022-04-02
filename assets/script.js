@@ -75,12 +75,14 @@ function loadCityHistory() {
   var localStorageKey = `previousCities`;
   var cities = JSON.parse(localStorage.getItem(localStorageKey));
   if (cities) {
-      for (const city of cities) {
+      // for (var city of cities) {
+        for (let i = cities.length; i >= cities.length - 10; i--) {
         var previousCity = document.createElement("li");
         previousCity.classList.add("prev-cities");
-        previousCity.textContent = city;
+        previousCity.textContent = cities[i];
         previousCity.addEventListener("click", function () {
-          loadCityTemp(city, false);
+          console.log('test')
+          loadCityTemp(cities[i], false);
         });
         historyDropdown.append(previousCity);
       }
