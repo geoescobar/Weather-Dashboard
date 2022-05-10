@@ -10,8 +10,8 @@ var icon = document.getElementById("icon");
 var historyDropdown = document.getElementById("dropdown-list");
 var mainUvi = document.getElementById("main-uv");
 
-var today = moment();
-$("#currentTime").text(today.format("MMMM Do, h:mm a"));
+// var today = moment();
+// $("#currentTime").text(today.format("MMMM Do, h:mm a"));
 
 
 
@@ -149,3 +149,26 @@ function fiveDay(lat, lon) {
     });
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+button.addEventListener("click", function (event) {
+  event.preventDefault();
+  loadCode();
+});
+
+function loadCode() {
+  let data = input.value.trim();
+  let imgSrc = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${data}`;
+  qrImg.src = imgSrc;
+  title.style.display = "none";
+}
